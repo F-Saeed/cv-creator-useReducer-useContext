@@ -1,0 +1,27 @@
+.education {
+  margin-top: 30px;
+
+  h2 {
+    display: inline;
+    font-size: 30px;
+    margin-bottom: 5px;
+  }
+
+  form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 1fr;
+    align-items: center;
+    justify-items: center;
+
+    input {
+      width: 20rem;
+    }
+
+    button {
+      grid-column: 1 / 3;
+      justify-self: center;
+      width: 140px;
+    }
+  }
+}
