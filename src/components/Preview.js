@@ -8,11 +8,10 @@ import {
 import { faGithubSquare, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import './sass/preview.scss';
 import { useContext } from 'react';
-import { stateContext, previewContext } from '../App';
+import { cvContext } from '../App';
 
 const Preview = () => {
-  const state = useContext(stateContext);
-  const { onDeleteEdu, onDeleteExp } = useContext(previewContext);
+  const { state, onDeleteEdu, onDeleteExp } = useContext(cvContext);
 
   const education = state.educationData.map((data) => {
     return (

@@ -1,16 +1,15 @@
 import './sass/inputs.scss';
 import { useContext } from 'react';
-import { stateContext, generalInfoContext } from '../App';
+import { cvContext } from '../App';
 
 const GeneralInfoInputs = (props) => {
   const { name, id } = props;
-  const state = useContext(stateContext);
-  const onGenralInfoChange = useContext(generalInfoContext);
+  const { state, onGeneralInfoChange } = useContext(cvContext);
 
   const handleChange = (event) => {
     const currentValue = event.target.value;
     const id = event.target.id;
-    onGenralInfoChange(currentValue, id);
+    onGeneralInfoChange(currentValue, id);
   };
 
   return (

@@ -9,11 +9,7 @@ import './components/sass/App.scss';
 import './components/sass/mainForm.scss';
 import './components/sass/buttons.scss';
 
-export const stateContext = React.createContext();
-export const generalInfoContext = React.createContext();
-export const educationContext = React.createContext();
-export const experienceContext = React.createContext();
-export const previewContext = React.createContext();
+export const cvContext = React.createContext();
 
 export const initialState = {
   generalInfo: {
@@ -173,26 +169,27 @@ const App = () => {
 
   return (
     <div className="App">
-      <stateContext.Provider value={state}>
+      <cvContext.Provider
+        value={{
+          state,
+          onGeneralInfoChange,
+          onEducationChange,
+          onEduSubmit,
+          onExperienceChange,
+          onExpSubmit,
+          onDeleteEdu,
+          onDeleteExp,
+        }}
+      >
         <div className="main-form">
           <h1>CV Creator</h1>
 
-          <generalInfoContext.Provider value={onGeneralInfoChange}>
-            <GeneralInfo />
-          </generalInfoContext.Provider>
-          <educationContext.Provider value={{ onEducationChange, onEduSubmit }}>
-            <Education />
-          </educationContext.Provider>
-          <experienceContext.Provider
-            value={{ onExperienceChange, onExpSubmit }}
-          >
-            <Experience />
-          </experienceContext.Provider>
+          <GeneralInfo />
+          <Education />
+          <Experience />
         </div>
-        <previewContext.Provider value={{ onDeleteEdu, onDeleteExp }}>
-          <Preview />
-        </previewContext.Provider>
-      </stateContext.Provider>
+        <Preview />
+      </cvContext.Provider>
     </div>
   );
 };

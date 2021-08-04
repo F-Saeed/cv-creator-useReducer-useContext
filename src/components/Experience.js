@@ -1,11 +1,10 @@
 import './sass/experience.scss';
 import './sass/inputs.scss';
 import { useContext } from 'react';
-import { stateContext, experienceContext } from '../App';
+import { cvContext } from '../App';
 
 const Experience = () => {
-  const state = useContext(stateContext);
-  const { onExpSubmit, onExperienceChange } = useContext(experienceContext);
+  const { state, onExpSubmit, onExperienceChange } = useContext(cvContext);
 
   const handleChange = (event) => {
     const currentValue = event.target.value;

@@ -1,11 +1,10 @@
 import './sass/education.scss';
 import './sass/inputs.scss';
 import { useContext } from 'react';
-import { stateContext, educationContext } from '../App';
+import { cvContext } from '../App';
 
 const Education = () => {
-  const state = useContext(stateContext);
-  const { onEduSubmit, onEducationChange } = useContext(educationContext);
+  const { state, onEduSubmit, onEducationChange } = useContext(cvContext);
 
   const handleChange = (event) => {
     const currentValue = event.target.value;

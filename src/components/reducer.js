@@ -6,42 +6,10 @@ export const reducer = (state, action) => {
     case 'field': {
       return { ...state, [action.field]: action.payload };
     }
-    case 'name': {
-      return {
-        ...state,
-        generalInfo: {
-          ...state.generalInfo,
-          ...action.payload,
-        },
-      };
-    }
-    case 'email': {
-      return {
-        ...state,
-        generalInfo: {
-          ...state.generalInfo,
-          ...action.payload,
-        },
-      };
-    }
-    case 'telephone': {
-      return {
-        ...state,
-        generalInfo: {
-          ...state.generalInfo,
-          ...action.payload,
-        },
-      };
-    }
-    case 'linkedin': {
-      return {
-        ...state,
-        generalInfo: {
-          ...state.generalInfo,
-          ...action.payload,
-        },
-      };
-    }
+    case 'name':
+    case 'email':
+    case 'telephone':
+    case 'linkedin':
     case 'github': {
       return {
         ...state,
@@ -51,33 +19,9 @@ export const reducer = (state, action) => {
         },
       };
     }
-    case 'schoolName': {
-      return {
-        ...state,
-        education: {
-          ...state.education,
-          ...action.payload,
-        },
-      };
-    }
-    case 'major': {
-      return {
-        ...state,
-        education: {
-          ...state.education,
-          ...action.payload,
-        },
-      };
-    }
-    case 'start': {
-      return {
-        ...state,
-        education: {
-          ...state.education,
-          ...action.payload,
-        },
-      };
-    }
+    case 'schoolName':
+    case 'major':
+    case 'start':
     case 'end': {
       return {
         ...state,
@@ -105,42 +49,10 @@ export const reducer = (state, action) => {
         ),
       };
     }
-    case 'companyName': {
-      return {
-        ...state,
-        experience: {
-          ...state.experience,
-          ...action.payload,
-        },
-      };
-    }
-    case 'position': {
-      return {
-        ...state,
-        experience: {
-          ...state.experience,
-          ...action.payload,
-        },
-      };
-    }
-    case 'from': {
-      return {
-        ...state,
-        experience: {
-          ...state.experience,
-          ...action.payload,
-        },
-      };
-    }
-    case 'to': {
-      return {
-        ...state,
-        experience: {
-          ...state.experience,
-          ...action.payload,
-        },
-      };
-    }
+    case 'companyName':
+    case 'position':
+    case 'from':
+    case 'to':
     case 'tasks': {
       return {
         ...state,
