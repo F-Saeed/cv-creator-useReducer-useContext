@@ -1,11 +1,10 @@
 .preview {
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   font-family: Montserrat-Regular;
-  margin-top: 100px;
   margin-bottom: 30px;
   padding: 50px;
-  min-height: 1150px;
-  width: 813px;
+  min-height: 1151px;
+  width: 811px;
 
   header {
     border-bottom: #000 solid 2px;
@@ -34,9 +33,12 @@
         margin-left: 10px;
       }
 
-      div,
-      a {
+      div {
         color: #000;
+      }
+
+      a {
+        color: blueviolet;
         text-decoration: none;
       }
     }
@@ -98,5 +100,15 @@
         }
       }
     }
+  }
+}
+
+@media print {
+  .preview {
+    box-shadow: none;
+  }
+
+  .trash-icon {
+    display: none;
   }
 }

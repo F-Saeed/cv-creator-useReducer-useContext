@@ -53,7 +53,7 @@ const Education = () => {
             onChange={handleChange}
           />
         </div>
-        <button type="submit">Add Information</button>
+        <button type="submit">Add Education</button>
       </form>
     </section>
   );

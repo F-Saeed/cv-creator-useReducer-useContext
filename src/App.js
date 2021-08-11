@@ -1,5 +1,6 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, useRef } from 'react';
 import { reducer } from './components/reducer';
+import { useReactToPrint } from 'react-to-print';
 import uniqid from 'uniqid';
 import GeneralInfo from './components/GeneralInfo';
 import Education from './components/Education';
@@ -41,6 +42,11 @@ export const initialState = {
 const App = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
+  const componentRef = useRef();
+  const handlePrint = useReactToPrint({
+    content: () => componentRef.current,
+  });
+
   const onGeneralInfoChange = (currentValue, id) => {
     if (id === 'telephone' && currentValue.match(/^\d{0,14}$/)) {
       dispatch({
@@ -60,19 +66,13 @@ const App = () => {
         field: id,
         payload: { email: currentValue },
       });
-    } else if (
-      id === 'github' &&
-      currentValue.match(/^[A-Za-z0-9./-]{0,70}$/)
-    ) {
+    } else if (id === 'github') {
       dispatch({
         type: id,
         field: id,
         payload: { github: currentValue },
       });
-    } else if (
-      id === 'linkedin' &&
-      currentValue.match(/^[A-Za-z0-9./-]{0,70}$/)
-    ) {
+    } else if (id === 'linkedin') {
       dispatch({
         type: id,
         field: id,
@@ -188,8 +188,11 @@ const App = () => {
           <Education />
           <Experience />
         </div>
-        <Preview />
+        <Preview ref={componentRef} />
       </cvContext.Provider>
+      <button id="print" onClick={handlePrint}>
+        Download PDF
+      </button>
     </div>
   );
 };

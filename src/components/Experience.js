@@ -54,7 +54,7 @@ const Experience = () => {
           />
         </div>
         <div className="tasks-div">
-          <h3>Tasks:</h3>
+          <h3>Description:</h3>
           <textarea
             id="tasks"
             type="text"

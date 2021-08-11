@@ -10,7 +10,7 @@ import './sass/preview.scss';
 import { useContext } from 'react';
 import { cvContext } from '../App';
 
-const Preview = () => {
+const Preview = React.forwardRef((props, ref) => {
   const { state, onDeleteEdu, onDeleteExp } = useContext(cvContext);
 
   const education = state.educationData.map((data) => {
@@ -57,7 +57,7 @@ const Preview = () => {
   });
 
   return (
-    <div className="preview">
+    <div className="preview" ref={ref}>
       <header>
         <h1>{state.generalInfo.name}</h1>
         <div className="contacts">
@@ -105,6 +105,6 @@ const Preview = () => {
       ) : null}
     </div>
   );
-};
+});
 
 export default Preview;
