@@ -29,7 +29,7 @@ This webapp creates a simple cv according to the information the user has entere
 - JavaScript
 - Fontawesome
 - uniqid (JavaScript library)
-- CSS
+- SASS
 - HTML
 
 ## Setup
@@ -41,4 +41,4 @@ This webapp creates a simple cv according to the information the user has entere
   $ yarn install
   $ yarn start
   ```
-  - this will open a browser tab displaying the project.
+- this will open a browser tab displaying the project.
