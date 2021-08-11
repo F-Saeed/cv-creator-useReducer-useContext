@@ -4,9 +4,9 @@ A simple CV creation webapp created using React that allows users to easily crea
 
 ## Table of Contents
 
-- [General Information](#general-info)
+- [General Information](#general-information)
 - [Usage](#usage)
-- [Technologies used](#technologies)
+- [Technologies used](#technologies-used)
 - [Setup](#setup)
 
 ## General Information
