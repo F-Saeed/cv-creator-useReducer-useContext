@@ -35,7 +35,7 @@ This webapp creates a simple cv according to the information the user has entere
 ## Setup
 
 - Clone the project to your directory
-- enter the newly created project folder
+- open the newly created project folder
 - open up terminal in this folder and write the following commands:
   ```
   $ yarn install
