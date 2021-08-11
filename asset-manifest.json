@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/F-Saeed/cv-creator-useReducer-useContext/static/css/main.20db076a.chunk.css",
+    "main.js": "/F-Saeed/cv-creator-useReducer-useContext/static/js/main.a36c0ad1.chunk.js",
+    "main.js.map": "/F-Saeed/cv-creator-useReducer-useContext/static/js/main.a36c0ad1.chunk.js.map",
+    "runtime-main.js": "/F-Saeed/cv-creator-useReducer-useContext/static/js/runtime-main.45675afd.js",
+    "runtime-main.js.map": "/F-Saeed/cv-creator-useReducer-useContext/static/js/runtime-main.45675afd.js.map",
+    "static/js/2.107a4cea.chunk.js": "/F-Saeed/cv-creator-useReducer-useContext/static/js/2.107a4cea.chunk.js",
+    "static/js/2.107a4cea.chunk.js.map": "/F-Saeed/cv-creator-useReducer-useContext/static/js/2.107a4cea.chunk.js.map",
+    "index.html": "/F-Saeed/cv-creator-useReducer-useContext/index.html",
+    "static/css/main.20db076a.chunk.css.map": "/F-Saeed/cv-creator-useReducer-useContext/static/css/main.20db076a.chunk.css.map",
+    "static/js/2.107a4cea.chunk.js.LICENSE.txt": "/F-Saeed/cv-creator-useReducer-useContext/static/js/2.107a4cea.chunk.js.LICENSE.txt",
+    "static/media/App.scss": "/F-Saeed/cv-creator-useReducer-useContext/static/media/MontserratAlternates-Regular.a14e717f.ttf"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.45675afd.js",
+    "static/js/2.107a4cea.chunk.js",
+    "static/css/main.20db076a.chunk.css",
+    "static/js/main.a36c0ad1.chunk.js"
+  ]
+}
