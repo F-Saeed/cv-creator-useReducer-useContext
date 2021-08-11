@@ -8,6 +8,7 @@ A simple CV creation webapp created using React that allows users to easily crea
 - [Usage](#usage)
 - [Technologies used](#technologies-used)
 - [Setup](#setup)
+- [Deployment](#deployment)
 
 ## General Information
 
@@ -42,3 +43,7 @@ This webapp creates a simple cv according to the information the user has entere
   $ yarn start
   ```
 - this will open a browser tab displaying the project.
+
+## Deployment
+
+- [Link](https://f-saeed.github.io/cv-creator-useReducer-useContext/)
