@@ -62,7 +62,7 @@ const App = () => {
       dispatch({
         type: id,
         field: id,
-        payload: { telephone: currentValue },
+        payload: { [id]: currentValue },
       });
     } else if (id === 'name' && currentValue.match(/^[a-zA-Z ]{0,25}$/)) {
       dispatch({
@@ -74,47 +74,35 @@ const App = () => {
       dispatch({
         type: id,
         field: id,
-        payload: { email: currentValue },
+        payload: { [id]: currentValue },
       });
-    } else if (id === 'github') {
+    } else if (id === 'github' || id === 'linkedin') {
       dispatch({
         type: id,
         field: id,
-        payload: { github: currentValue },
-      });
-    } else if (id === 'linkedin') {
-      dispatch({
-        type: id,
-        field: id,
-        payload: { linkedin: currentValue },
+        payload: { [id]: currentValue },
       });
     }
   };
 
   const onEducationChange = (currentValue, id) => {
-    if (id === 'schoolName' && currentValue.match(/^[a-zA-Z- ]{0,70}$/)) {
+    if (
+      (id === 'schoolName' || id === 'major') &&
+      currentValue.match(/^[a-zA-Z- ]{0,70}$/)
+    ) {
       dispatch({
         type: id,
         field: id,
-        payload: { schoolName: currentValue },
+        payload: { [id]: currentValue },
       });
-    } else if (id === 'major' && currentValue.match(/^[a-zA-Z- ]{0,70}$/)) {
+    } else if (
+      (id === 'educationStart' || id === 'educationEnd') &&
+      currentValue.match(/^\d{0,4}$/)
+    ) {
       dispatch({
         type: id,
         field: id,
-        payload: { major: currentValue },
-      });
-    } else if (id === 'educationStart' && currentValue.match(/^\d{0,4}$/)) {
-      dispatch({
-        type: id,
-        field: id,
-        payload: { educationStart: currentValue },
-      });
-    } else if (id === 'educationEnd' && currentValue.match(/^\d{0,4}$/)) {
-      dispatch({
-        type: id,
-        field: id,
-        payload: { educationEnd: currentValue },
+        payload: { [id]: currentValue },
       });
     }
   };
@@ -132,35 +120,29 @@ const App = () => {
   };
 
   const onExperienceChange = (currentValue, id) => {
-    if (id === 'companyName' && currentValue.match(/^[a-zA-Z- ]{0,70}$/)) {
+    if (
+      (id === 'companyName' || id === 'position') &&
+      currentValue.match(/^[a-zA-Z- ]{0,70}$/)
+    ) {
       dispatch({
         type: id,
         field: id,
-        payload: { companyName: currentValue },
+        payload: { [id]: currentValue },
       });
-    } else if (id === 'position' && currentValue.match(/^[a-zA-Z- ]{0,70}$/)) {
+    } else if (
+      (id === 'from' || id === 'to') &&
+      currentValue.match(/^\d{0,4}$/)
+    ) {
       dispatch({
         type: id,
         field: id,
-        payload: { position: currentValue },
-      });
-    } else if (id === 'from' && currentValue.match(/^\d{0,4}$/)) {
-      dispatch({
-        type: id,
-        field: id,
-        payload: { from: currentValue },
-      });
-    } else if (id === 'to' && currentValue.match(/^\d{0,4}$/)) {
-      dispatch({
-        type: id,
-        field: id,
-        payload: { to: currentValue },
+        payload: { [id]: currentValue },
       });
     } else if (id === 'expDescr') {
       dispatch({
         type: id,
         field: id,
-        payload: { expDescr: currentValue },
+        payload: { [id]: currentValue },
       });
     }
   };
@@ -178,38 +160,29 @@ const App = () => {
   };
 
   const onProjectChange = (currentValue, id) => {
-    if (id === 'projectName' && currentValue.match(/^[a-zA-Z- ]{0,70}$/)) {
-      dispatch({
-        type: id,
-        field: id,
-        payload: { projectName: currentValue },
-      });
-    } else if (
-      id === 'institution' &&
+    if (
+      (id === 'projectName' || id === 'institution') &&
       currentValue.match(/^[a-zA-Z- ]{0,70}$/)
     ) {
       dispatch({
         type: id,
         field: id,
-        payload: { institution: currentValue },
+        payload: { [id]: currentValue },
       });
-    } else if (id === 'projectStart' && currentValue.match(/^\d{0,4}$/)) {
+    } else if (
+      (id === 'projectStart' || id === 'projectEnd') &&
+      currentValue.match(/^\d{0,4}$/)
+    ) {
       dispatch({
         type: id,
         field: id,
-        payload: { projectStart: currentValue },
-      });
-    } else if (id === 'projectEnd' && currentValue.match(/^\d{0,4}$/)) {
-      dispatch({
-        type: id,
-        field: id,
-        payload: { projectEnd: currentValue },
+        payload: { [id]: currentValue },
       });
     } else if (id === 'projectDescr') {
       dispatch({
         type: id,
         field: id,
-        payload: { projectDescr: currentValue },
+        payload: { [id]: currentValue },
       });
     }
   };
