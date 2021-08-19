@@ -3,71 +3,71 @@ import './sass/inputs.scss';
 import { useContext } from 'react';
 import { cvContext } from '../App';
 
-const Experience = () => {
-  const { state, onExpSubmit, onExperienceChange } = useContext(cvContext);
+const Projects = () => {
+  const { state, onProjSubmit, onProjectChange } = useContext(cvContext);
 
   const handleChange = (event) => {
     const currentValue = event.target.value;
     const id = event.target.id;
 
-    onExperienceChange(currentValue, id);
+    onProjectChange(currentValue, id);
   };
 
   return (
-    <section className="experience">
-      <h2>Work Experience</h2>
-      <form onSubmit={(event) => onExpSubmit(event)}>
+    <section className="projects">
+      <h2>Projects</h2>
+      <form onSubmit={(event) => onProjSubmit(event)}>
         <div>
-          <h3>Company Name:</h3>
+          <h3>Project Name:</h3>
           <input
-            id="companyName"
+            id="projectName"
             type="text"
-            value={state.experience.companyName}
+            value={state.projects.projectName}
             onChange={handleChange}
           />
         </div>
         <div>
-          <h3>Position Title:</h3>
+          <h3>Institution:</h3>
           <input
-            id="position"
+            id="institution"
             type="text"
-            value={state.experience.position}
+            value={state.projects.institution}
             onChange={handleChange}
           />
         </div>
         <div>
-          <h3>From:</h3>
+          <h3>Starting Year:</h3>
           <input
-            id="from"
+            id="projectStart"
             type="text"
-            value={state.experience.from}
+            value={state.projects.projectStart}
             onChange={handleChange}
           />
         </div>
         <div>
-          <h3>To:</h3>
+          <h3>Ending Year:</h3>
           <input
-            id="to"
+            id="projectEnd"
             type="text"
-            value={state.experience.to}
+            value={state.projects.projectEnd}
             onChange={handleChange}
           />
         </div>
-        <div className="expDescr-div">
+        <div className="projectDescr-div">
           <h3>Description:</h3>
           <textarea
-            id="expDescr"
+            id="projectDescr"
             type="text"
             rows="5"
             cols="50"
-            value={state.experience.tasks}
+            value={state.projects.projectDescr}
             onChange={handleChange}
           />
         </div>
-        <button type="submit">Add Experience</button>
+        <button type="submit">Add Project</button>
       </form>
     </section>
   );
 };
 
-export default Experience;
+export default Projects;

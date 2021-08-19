@@ -5,6 +5,7 @@ import uniqid from 'uniqid';
 import GeneralInfo from './components/GeneralInfo';
 import Education from './components/Education';
 import Experience from './components/Experience';
+import Projects from './components/Projects';
 import Preview from './components/Preview';
 import './components/sass/App.scss';
 import './components/sass/mainForm.scss';
@@ -24,8 +25,8 @@ export const initialState = {
     id: uniqid(),
     schoolName: '',
     major: '',
-    start: '',
-    end: '',
+    educationStart: '',
+    educationEnd: '',
   },
   educationData: [],
   experience: {
@@ -34,9 +35,18 @@ export const initialState = {
     position: '',
     from: '',
     to: '',
-    tasks: '',
+    expDescr: '',
   },
   experienceData: [],
+  projects: {
+    id: uniqid(),
+    projectName: '',
+    institution: '',
+    projectStart: '',
+    projectEnd: '',
+    projectDescr: '',
+  },
+  projectsData: [],
 };
 
 const App = () => {
@@ -94,17 +104,17 @@ const App = () => {
         field: id,
         payload: { major: currentValue },
       });
-    } else if (id === 'start' && currentValue.match(/^\d{0,4}$/)) {
+    } else if (id === 'educationStart' && currentValue.match(/^\d{0,4}$/)) {
       dispatch({
         type: id,
         field: id,
-        payload: { start: currentValue },
+        payload: { educationStart: currentValue },
       });
-    } else if (id === 'end' && currentValue.match(/^\d{0,4}$/)) {
+    } else if (id === 'educationEnd' && currentValue.match(/^\d{0,4}$/)) {
       dispatch({
         type: id,
         field: id,
-        payload: { end: currentValue },
+        payload: { educationEnd: currentValue },
       });
     }
   };
@@ -112,6 +122,13 @@ const App = () => {
   const onEduSubmit = (event) => {
     event.preventDefault();
     dispatch({ type: 'eduSubmit' });
+  };
+
+  const onDeleteEdu = (eduID) => {
+    dispatch({
+      type: 'eduDelete',
+      payload: eduID,
+    });
   };
 
   const onExperienceChange = (currentValue, id) => {
@@ -127,23 +144,23 @@ const App = () => {
         field: id,
         payload: { position: currentValue },
       });
-    } else if (id === 'to' && currentValue.match(/^\d{0,4}$/)) {
-      dispatch({
-        type: id,
-        field: id,
-        payload: { to: currentValue },
-      });
     } else if (id === 'from' && currentValue.match(/^\d{0,4}$/)) {
       dispatch({
         type: id,
         field: id,
         payload: { from: currentValue },
       });
-    } else if (id === 'tasks') {
+    } else if (id === 'to' && currentValue.match(/^\d{0,4}$/)) {
       dispatch({
         type: id,
         field: id,
-        payload: { tasks: currentValue },
+        payload: { to: currentValue },
+      });
+    } else if (id === 'expDescr') {
+      dispatch({
+        type: id,
+        field: id,
+        payload: { expDescr: currentValue },
       });
     }
   };
@@ -153,17 +170,59 @@ const App = () => {
     dispatch({ type: 'expSubmit' });
   };
 
-  const onDeleteEdu = (eduID) => {
-    dispatch({
-      type: 'eduDelete',
-      payload: eduID,
-    });
-  };
-
   const onDeleteExp = (expID) => {
     dispatch({
       type: 'expDelete',
       payload: expID,
+    });
+  };
+
+  const onProjectChange = (currentValue, id) => {
+    if (id === 'projectName' && currentValue.match(/^[a-zA-Z- ]{0,70}$/)) {
+      dispatch({
+        type: id,
+        field: id,
+        payload: { projectName: currentValue },
+      });
+    } else if (
+      id === 'institution' &&
+      currentValue.match(/^[a-zA-Z- ]{0,70}$/)
+    ) {
+      dispatch({
+        type: id,
+        field: id,
+        payload: { institution: currentValue },
+      });
+    } else if (id === 'projectStart' && currentValue.match(/^\d{0,4}$/)) {
+      dispatch({
+        type: id,
+        field: id,
+        payload: { projectStart: currentValue },
+      });
+    } else if (id === 'projectEnd' && currentValue.match(/^\d{0,4}$/)) {
+      dispatch({
+        type: id,
+        field: id,
+        payload: { projectEnd: currentValue },
+      });
+    } else if (id === 'projectDescr') {
+      dispatch({
+        type: id,
+        field: id,
+        payload: { projectDescr: currentValue },
+      });
+    }
+  };
+
+  const onProjSubmit = (event) => {
+    event.preventDefault();
+    dispatch({ type: 'projSubmit' });
+  };
+
+  const onDeleteProj = (projID) => {
+    dispatch({
+      type: 'projDelete',
+      payload: projID,
     });
   };
 
@@ -179,6 +238,9 @@ const App = () => {
           onExpSubmit,
           onDeleteEdu,
           onDeleteExp,
+          onProjectChange,
+          onProjSubmit,
+          onDeleteProj,
         }}
       >
         <div className="main-form">
@@ -187,6 +249,7 @@ const App = () => {
           <GeneralInfo />
           <Education />
           <Experience />
+          <Projects />
         </div>
         <Preview ref={componentRef} />
       </cvContext.Provider>

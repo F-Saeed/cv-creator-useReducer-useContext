@@ -11,7 +11,8 @@ import { useContext } from 'react';
 import { cvContext } from '../App';
 
 const Preview = React.forwardRef((props, ref) => {
-  const { state, onDeleteEdu, onDeleteExp } = useContext(cvContext);
+  const { state, onDeleteEdu, onDeleteExp, onDeleteProj } =
+    useContext(cvContext);
 
   const education = state.educationData.map((data) => {
     return (
@@ -21,7 +22,7 @@ const Preview = React.forwardRef((props, ref) => {
           <p>{data.major}</p>
         </div>
         <div className="years">
-          {data.start} - {data.end}
+          {data.educationStart} - {data.educationEnd}
           <div
             onClick={() => {
               onDeleteEdu(data.id);
@@ -40,13 +41,35 @@ const Preview = React.forwardRef((props, ref) => {
         <div className="information">
           <h2>{data.companyName}</h2>
           <p>{data.position}</p>
-          <p id="tasks">{data.tasks}</p>
+          <p id="expDescr-preview">{data.expDescr}</p>
         </div>
         <div className="years">
           {data.from} - {data.to}
           <div
             onClick={() => {
               onDeleteExp(data.id);
+            }}
+          >
+            <FontAwesomeIcon className="trash-icon" icon={faTrash} size="2x" />
+          </div>
+        </div>
+      </div>
+    );
+  });
+
+  const projects = state.projectsData.map((data) => {
+    return (
+      <div className="details" id={data.id}>
+        <div className="information">
+          <h2>{data.projectName}</h2>
+          <p>{data.institution}</p>
+          <p id="projectDescr-preview">{data.projectDescr}</p>
+        </div>
+        <div className="years">
+          {data.projectStart} - {data.projectEnd}
+          <div
+            onClick={() => {
+              onDeleteProj(data.id);
             }}
           >
             <FontAwesomeIcon className="trash-icon" icon={faTrash} size="2x" />
@@ -101,6 +124,12 @@ const Preview = React.forwardRef((props, ref) => {
         <section className="section">
           <h2>Experience</h2>
           {experience}
+        </section>
+      ) : null}
+      {state.projectsData.length ? (
+        <section className="section">
+          <h2>Projects</h2>
+          {projects}
         </section>
       ) : null}
     </div>

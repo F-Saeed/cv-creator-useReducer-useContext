@@ -38,18 +38,18 @@ const Education = () => {
         <div>
           <h3>Starting Year:</h3>
           <input
-            id="start"
+            id="educationStart"
             type="text"
-            value={state.education.start}
+            value={state.education.educationStart}
             onChange={handleChange}
           />
         </div>
         <div>
           <h3>Graduation Year:</h3>
           <input
-            id="end"
+            id="educationEnd"
             type="text"
-            value={state.education.end}
+            value={state.education.educationEnd}
             onChange={handleChange}
           />
         </div>

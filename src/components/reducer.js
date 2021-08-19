@@ -21,8 +21,8 @@ export const reducer = (state, action) => {
     }
     case 'schoolName':
     case 'major':
-    case 'start':
-    case 'end': {
+    case 'educationStart':
+    case 'educationEnd': {
       return {
         ...state,
         education: {
@@ -53,7 +53,7 @@ export const reducer = (state, action) => {
     case 'position':
     case 'from':
     case 'to':
-    case 'tasks': {
+    case 'expDescr': {
       return {
         ...state,
         experience: {
@@ -78,7 +78,40 @@ export const reducer = (state, action) => {
       return {
         ...state,
         experienceData: state.experienceData.filter(
-          (edu) => edu.id !== action.payload
+          (exp) => exp.id !== action.payload
+        ),
+      };
+    }
+    case 'projectName':
+    case 'institution':
+    case 'projectStart':
+    case 'projectEnd':
+    case 'projectDescr': {
+      return {
+        ...state,
+        projects: {
+          ...state.projects,
+          ...action.payload,
+        },
+      };
+    }
+    case 'projSubmit': {
+      console.log(state);
+      return {
+        ...state,
+        projectsData: [...state.projectsData, state.projects],
+        projects: {
+          ...initialState.projects,
+          id: uniqid(),
+        },
+      };
+    }
+    case 'projDelete': {
+      console.log(state);
+      return {
+        ...state,
+        projectsData: state.projectsData.filter(
+          (proj) => proj.id !== action.payload
         ),
       };
     }
