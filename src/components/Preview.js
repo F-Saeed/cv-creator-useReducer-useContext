@@ -8,7 +8,7 @@ import {
 import { faGithubSquare, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import './sass/preview.scss';
 import { useContext } from 'react';
-import { cvContext } from '../App';
+import { cvContext } from './CVContextProvider';
 
 const Preview = React.forwardRef((props, ref) => {
   const { state, onDeleteEdu, onDeleteExp, onDeleteProj } =

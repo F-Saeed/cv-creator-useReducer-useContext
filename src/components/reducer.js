@@ -1,5 +1,5 @@
 import uniqid from 'uniqid';
-import { initialState } from '../App';
+import { initialState } from './CVContextProvider';
 
 export const reducer = (state, action) => {
   switch (action.type) {
@@ -34,10 +34,12 @@ export const reducer = (state, action) => {
     case 'eduSubmit': {
       return {
         ...state,
-        educationData: [...state.educationData, state.education],
+        educationData: [
+          ...state.educationData,
+          { id: uniqid(), ...state.education },
+        ],
         education: {
           ...initialState.education,
-          id: uniqid(),
         },
       };
     }
@@ -66,10 +68,12 @@ export const reducer = (state, action) => {
       console.log(state);
       return {
         ...state,
-        experienceData: [...state.experienceData, state.experience],
+        experienceData: [
+          ...state.experienceData,
+          { id: uniqid(), ...state.experience },
+        ],
         experience: {
           ...initialState.experience,
-          id: uniqid(),
         },
       };
     }
@@ -89,8 +93,8 @@ export const reducer = (state, action) => {
     case 'projectDescr': {
       return {
         ...state,
-        projects: {
-          ...state.projects,
+        project: {
+          ...state.project,
           ...action.payload,
         },
       };
@@ -99,10 +103,12 @@ export const reducer = (state, action) => {
       console.log(state);
       return {
         ...state,
-        projectsData: [...state.projectsData, state.projects],
-        projects: {
-          ...initialState.projects,
-          id: uniqid(),
+        projectsData: [
+          ...state.projectsData,
+          { id: uniqid(), ...state.project },
+        ],
+        project: {
+          ...initialState.project,
         },
       };
     }

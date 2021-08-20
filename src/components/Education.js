@@ -1,7 +1,7 @@
 import './sass/education.scss';
 import './sass/inputs.scss';
 import { useContext } from 'react';
-import { cvContext } from '../App';
+import { cvContext } from './CVContextProvider';
 
 const Education = () => {
   const { state, onEduSubmit, onEducationChange } = useContext(cvContext);

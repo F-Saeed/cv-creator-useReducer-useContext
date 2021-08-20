@@ -1,7 +1,7 @@
 import './sass/experience&projects.scss';
 import './sass/inputs.scss';
 import { useContext } from 'react';
-import { cvContext } from '../App';
+import { cvContext } from './CVContextProvider';
 
 const Experience = () => {
   const { state, onExpSubmit, onExperienceChange } = useContext(cvContext);
@@ -60,7 +60,7 @@ const Experience = () => {
             type="text"
             rows="5"
             cols="50"
-            value={state.experience.tasks}
+            value={state.experience.expDescr}
             onChange={handleChange}
           />
         </div>

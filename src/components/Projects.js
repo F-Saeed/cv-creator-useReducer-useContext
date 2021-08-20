@@ -1,7 +1,7 @@
 import './sass/experience&projects.scss';
 import './sass/inputs.scss';
 import { useContext } from 'react';
-import { cvContext } from '../App';
+import { cvContext } from './CVContextProvider';
 
 const Projects = () => {
   const { state, onProjSubmit, onProjectChange } = useContext(cvContext);
@@ -22,7 +22,7 @@ const Projects = () => {
           <input
             id="projectName"
             type="text"
-            value={state.projects.projectName}
+            value={state.project.projectName}
             onChange={handleChange}
           />
         </div>
@@ -31,7 +31,7 @@ const Projects = () => {
           <input
             id="institution"
             type="text"
-            value={state.projects.institution}
+            value={state.project.institution}
             onChange={handleChange}
           />
         </div>
@@ -40,7 +40,7 @@ const Projects = () => {
           <input
             id="projectStart"
             type="text"
-            value={state.projects.projectStart}
+            value={state.project.projectStart}
             onChange={handleChange}
           />
         </div>
@@ -49,7 +49,7 @@ const Projects = () => {
           <input
             id="projectEnd"
             type="text"
-            value={state.projects.projectEnd}
+            value={state.project.projectEnd}
             onChange={handleChange}
           />
         </div>
@@ -60,7 +60,7 @@ const Projects = () => {
             type="text"
             rows="5"
             cols="50"
-            value={state.projects.projectDescr}
+            value={state.project.projectDescr}
             onChange={handleChange}
           />
         </div>

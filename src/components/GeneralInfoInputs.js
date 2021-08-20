@@ -1,6 +1,6 @@
 import './sass/inputs.scss';
 import { useContext } from 'react';
-import { cvContext } from '../App';
+import { cvContext } from './CVContextProvider';
 
 const GeneralInfoInputs = (props) => {
   const { name, id } = props;
