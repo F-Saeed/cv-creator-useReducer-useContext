@@ -65,7 +65,6 @@ export const reducer = (state, action) => {
       };
     }
     case 'expSubmit': {
-      console.log(state);
       return {
         ...state,
         experienceData: [
@@ -78,7 +77,6 @@ export const reducer = (state, action) => {
       };
     }
     case 'expDelete': {
-      console.log(state);
       return {
         ...state,
         experienceData: state.experienceData.filter(
@@ -100,7 +98,6 @@ export const reducer = (state, action) => {
       };
     }
     case 'projSubmit': {
-      console.log(state);
       return {
         ...state,
         projectsData: [
@@ -113,7 +110,6 @@ export const reducer = (state, action) => {
       };
     }
     case 'projDelete': {
-      console.log(state);
       return {
         ...state,
         projectsData: state.projectsData.filter(

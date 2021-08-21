@@ -36,7 +36,7 @@ const initialState = {
   projectsData: [],
 };
 
-const CVContextProvider = ({ children }) => {
+const CVContextProvider = (props) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const onGeneralInfoChange = (currentValue, id) => {
@@ -197,7 +197,7 @@ const CVContextProvider = ({ children }) => {
         onDeleteProj,
       }}
     >
-      {children}
+      {props.children}
     </cvContext.Provider>
   );
 };

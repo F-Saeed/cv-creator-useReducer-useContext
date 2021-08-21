@@ -16,19 +16,22 @@ const Preview = React.forwardRef((props, ref) => {
 
   const education = state.educationData.map((data) => {
     return (
-      <div className="details" id={data.id}>
-        <div className="information">
+      <div className='details' id={data.id}>
+        <div className='information'>
           <h2>{data.schoolName}</h2>
           <p>{data.major}</p>
         </div>
-        <div className="years">
-          {data.educationStart} - {data.educationEnd}
+        <div className='years'>
+          {data.educationStart} -{' '}
+          {data.educationEnd === new Date().getFullYear().toString()
+            ? 'Present'
+            : data.educationEnd}
           <div
             onClick={() => {
               onDeleteEdu(data.id);
             }}
           >
-            <FontAwesomeIcon className="trash-icon" icon={faTrash} size="2x" />
+            <FontAwesomeIcon className='trash-icon' icon={faTrash} size='2x' />
           </div>
         </div>
       </div>
@@ -37,20 +40,23 @@ const Preview = React.forwardRef((props, ref) => {
 
   const experience = state.experienceData.map((data) => {
     return (
-      <div className="details" id={data.id}>
-        <div className="information">
+      <div className='details' id={data.id}>
+        <div className='information'>
           <h2>{data.companyName}</h2>
           <p>{data.position}</p>
-          <p id="expDescr-preview">{data.expDescr}</p>
+          <p id='expDescr-preview'>{data.expDescr}</p>
         </div>
-        <div className="years">
-          {data.from} - {data.to}
+        <div className='years'>
+          {data.from} -{' '}
+          {data.to === new Date().getFullYear().toString()
+            ? 'Present'
+            : data.to}
           <div
             onClick={() => {
               onDeleteExp(data.id);
             }}
           >
-            <FontAwesomeIcon className="trash-icon" icon={faTrash} size="2x" />
+            <FontAwesomeIcon className='trash-icon' icon={faTrash} size='2x' />
           </div>
         </div>
       </div>
@@ -59,20 +65,23 @@ const Preview = React.forwardRef((props, ref) => {
 
   const projects = state.projectsData.map((data) => {
     return (
-      <div className="details" id={data.id}>
-        <div className="information">
+      <div className='details' id={data.id}>
+        <div className='information'>
           <h2>{data.projectName}</h2>
           <p>{data.institution}</p>
-          <p id="projectDescr-preview">{data.projectDescr}</p>
+          <p id='projectDescr-preview'>{data.projectDescr}</p>
         </div>
-        <div className="years">
-          {data.projectStart} - {data.projectEnd}
+        <div className='years'>
+          {data.projectStart} -{' '}
+          {data.projectEnd === new Date().getFullYear().toString()
+            ? 'Present'
+            : data.projectEnd}
           <div
             onClick={() => {
               onDeleteProj(data.id);
             }}
           >
-            <FontAwesomeIcon className="trash-icon" icon={faTrash} size="2x" />
+            <FontAwesomeIcon className='trash-icon' icon={faTrash} size='2x' />
           </div>
         </div>
       </div>
@@ -80,54 +89,54 @@ const Preview = React.forwardRef((props, ref) => {
   });
 
   return (
-    <div className="preview" ref={ref}>
+    <div className='preview' ref={ref}>
       <header>
         <h1>{state.generalInfo.name}</h1>
-        <div className="contacts">
+        <div className='contacts'>
           <a
             href={state.generalInfo.email}
-            target="_blank"
-            rel="noreferrer noopener"
+            target='_blank'
+            rel='noreferrer noopener'
           >
             {state.generalInfo.email}
-            <FontAwesomeIcon icon={faAt} className="fa-icon" />
+            <FontAwesomeIcon icon={faAt} className='fa-icon' />
           </a>
           <div>
             {state.generalInfo.telephone}
-            <FontAwesomeIcon icon={faPhoneSquare} className="fa-icon" />
+            <FontAwesomeIcon icon={faPhoneSquare} className='fa-icon' />
           </div>
           <a
             href={state.generalInfo.linkedin}
-            target="_blank"
-            rel="noreferrer noopener"
+            target='_blank'
+            rel='noreferrer noopener'
           >
             {state.generalInfo.linkedin}
-            <FontAwesomeIcon icon={faLinkedin} className="fa-icon" />
+            <FontAwesomeIcon icon={faLinkedin} className='fa-icon' />
           </a>
           <a
             href={state.generalInfo.github}
-            target="_blank"
-            rel="noreferrer noopener"
+            target='_blank'
+            rel='noreferrer noopener'
           >
             {state.generalInfo.github}
-            <FontAwesomeIcon icon={faGithubSquare} className="fa-icon" />
+            <FontAwesomeIcon icon={faGithubSquare} className='fa-icon' />
           </a>
         </div>
       </header>
       {state.educationData.length ? (
-        <section className="section">
+        <section className='section'>
           <h2>Education</h2>
           {education}
         </section>
       ) : null}
       {state.experienceData.length ? (
-        <section className="section">
+        <section className='section'>
           <h2>Experience</h2>
           {experience}
         </section>
       ) : null}
       {state.projectsData.length ? (
-        <section className="section">
+        <section className='section'>
           <h2>Projects</h2>
           {projects}
         </section>
