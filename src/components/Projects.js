@@ -78,7 +78,7 @@ const Projects = () => {
               ],
               toolbar: 'bold italic ' + ' bullist numlist',
               content_style:
-                'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }',
+                'body { color: #666; font-family:Helvetica,Arial,sans-serif; ; font-size: 16px }',
             }}
           />
         </div>

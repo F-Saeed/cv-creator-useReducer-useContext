@@ -64,16 +64,25 @@
       .information {
         justify-self: start;
 
+        & > h2 {
+          color: #555e70;
+          font-family: Montserrat-Bold;
+          font-size: 1.6rem;
+        }
+
         & > p {
+          color: #313844;
+          font-family: Montserrat-Bold;
           margin-top: 6px;
-          font-size: 1.2rem;
+          font-size: 1.1rem;
         }
 
         & > #expDescr-preview,
         #projectDescr-preview {
+          color: #313844;
           margin-left: 30px;
           margin-top: 10px;
-          font-size: 1rem;
+          font-size: 0.9rem;
         }
       }
 
