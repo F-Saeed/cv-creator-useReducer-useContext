@@ -44,7 +44,10 @@ const Preview = React.forwardRef((props, ref) => {
         <div className='information'>
           <h2>{data.companyName}</h2>
           <p>{data.position}</p>
-          <p id='expDescr-preview'>{data.expDescr}</p>
+          <div
+            id='expDescr-preview'
+            dangerouslySetInnerHTML={{ __html: data.expDescr }}
+          />
         </div>
         <div className='years'>
           {data.from} -{' '}
@@ -69,7 +72,10 @@ const Preview = React.forwardRef((props, ref) => {
         <div className='information'>
           <h2>{data.projectName}</h2>
           <p>{data.institution}</p>
-          <p id='projectDescr-preview'>{data.projectDescr}</p>
+          <div
+            id='projectDescr-preview'
+            dangerouslySetInnerHTML={{ __html: data.projectDescr }}
+          />
         </div>
         <div className='years'>
           {data.projectStart} -{' '}

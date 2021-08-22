@@ -21,9 +21,15 @@
 
     div.expDescr-div,
     div.projectDescr-div {
-      grid-column: 1 / 3;
+      width: 450px;
+      grid-column: 1/ 3;
       grid-row: 3 / 5;
       justify-self: center;
+
+      .tox-tinymce {
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
     }
 
     button {
