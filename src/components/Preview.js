@@ -129,24 +129,24 @@ const Preview = React.forwardRef((props, ref) => {
           </a>
         </div>
       </header>
-      {state.educationData.length ? (
+      {!!state.educationData.length && (
         <section className='section'>
           <h2>Education</h2>
           {education}
         </section>
-      ) : null}
-      {state.experienceData.length ? (
+      )}
+      {!!state.experienceData.length && (
         <section className='section'>
           <h2>Experience</h2>
           {experience}
         </section>
-      ) : null}
-      {state.projectsData.length ? (
+      )}
+      {!!state.projectsData.length && (
         <section className='section'>
           <h2>Projects</h2>
           {projects}
         </section>
-      ) : null}
+      )}
     </div>
   );
 });
