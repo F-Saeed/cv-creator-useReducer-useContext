@@ -5,17 +5,15 @@ import { cvContext } from './CVContextProvider';
 import { Editor } from '@tinymce/tinymce-react';
 
 const Experience = () => {
-  const { state, onExpSubmit, onExperienceChange } = useContext(cvContext);
+  const { state, onExpSubmit, onInfoChange } = useContext(cvContext);
+  const { companyName, position, from, to, expDescr } = state.experience;
 
   const handleChange = (event) => {
-    const currentValue = event.target.value;
-    const id = event.target.id;
-
-    onExperienceChange(currentValue, id);
+    onInfoChange(event.target.value, event.target.id);
   };
 
   const descrHandleChange = (newValue, editor) => {
-    onExperienceChange(newValue, editor.id);
+    onInfoChange(newValue, editor.id);
   };
 
   return (
@@ -27,7 +25,7 @@ const Experience = () => {
           <input
             id='companyName'
             type='text'
-            value={state.experience.companyName}
+            value={companyName}
             onChange={handleChange}
           />
         </div>
@@ -36,33 +34,23 @@ const Experience = () => {
           <input
             id='position'
             type='text'
-            value={state.experience.position}
+            value={position}
             onChange={handleChange}
           />
         </div>
         <div>
           <h3>From:</h3>
-          <input
-            id='from'
-            type='text'
-            value={state.experience.from}
-            onChange={handleChange}
-          />
+          <input id='from' type='text' value={from} onChange={handleChange} />
         </div>
         <div>
           <h3>To:</h3>
-          <input
-            id='to'
-            type='text'
-            value={state.experience.to}
-            onChange={handleChange}
-          />
+          <input id='to' type='text' value={to} onChange={handleChange} />
         </div>
         <div className='expDescr-div'>
           <h3>Description:</h3>
           <Editor
             id='expDescr'
-            value={state.experience.expDescr}
+            value={expDescr}
             onEditorChange={descrHandleChange}
             apiKey='rlbryazfwlm9gaq1xyg33hn2jvg28o09o1unw7xwijjxawnk'
             tinymceScriptSrc={

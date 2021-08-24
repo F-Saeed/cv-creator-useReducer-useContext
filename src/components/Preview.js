@@ -28,7 +28,7 @@ const Preview = React.forwardRef((props, ref) => {
             : data.educationEnd}
           <div
             onClick={() => {
-              onDeleteEdu(data.id);
+              onDeleteEdu('eduDelete', data.id);
             }}
           >
             <FontAwesomeIcon className='trash-icon' icon={faTrash} size='2x' />
@@ -56,7 +56,7 @@ const Preview = React.forwardRef((props, ref) => {
             : data.to}
           <div
             onClick={() => {
-              onDeleteExp(data.id);
+              onDeleteExp('expDelete', data.id);
             }}
           >
             <FontAwesomeIcon className='trash-icon' icon={faTrash} size='2x' />
@@ -84,7 +84,7 @@ const Preview = React.forwardRef((props, ref) => {
             : data.projectEnd}
           <div
             onClick={() => {
-              onDeleteProj(data.id);
+              onDeleteProj('projDelete', data.id);
             }}
           >
             <FontAwesomeIcon className='trash-icon' icon={faTrash} size='2x' />

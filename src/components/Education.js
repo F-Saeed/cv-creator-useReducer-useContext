@@ -4,56 +4,49 @@ import { useContext } from 'react';
 import { cvContext } from './CVContextProvider';
 
 const Education = () => {
-  const { state, onEduSubmit, onEducationChange } = useContext(cvContext);
+  const { state, onEduSubmit, onInfoChange } = useContext(cvContext);
+  const { schoolName, major, educationStart, educationEnd } = state.education;
 
   const handleChange = (event) => {
-    const currentValue = event.target.value;
-    const id = event.target.id;
-
-    onEducationChange(currentValue, id);
+    onInfoChange(event.target.value, event.target.id);
   };
 
   return (
-    <section className="education">
+    <section className='education'>
       <h2>Education</h2>
       <form onSubmit={(event) => onEduSubmit(event)}>
         <div>
           <h3>School Name:</h3>
           <input
-            id="schoolName"
-            type="text"
-            value={state.education.schoolName}
+            id='schoolName'
+            type='text'
+            value={schoolName}
             onChange={handleChange}
           />
         </div>
         <div>
           <h3>Major:</h3>
-          <input
-            id="major"
-            type="text"
-            value={state.education.major}
-            onChange={handleChange}
-          />
+          <input id='major' type='text' value={major} onChange={handleChange} />
         </div>
         <div>
           <h3>Starting Year:</h3>
           <input
-            id="educationStart"
-            type="text"
-            value={state.education.educationStart}
+            id='educationStart'
+            type='text'
+            value={educationStart}
             onChange={handleChange}
           />
         </div>
         <div>
           <h3>Graduation Year:</h3>
           <input
-            id="educationEnd"
-            type="text"
-            value={state.education.educationEnd}
+            id='educationEnd'
+            type='text'
+            value={educationEnd}
             onChange={handleChange}
           />
         </div>
-        <button type="submit">Add Education</button>
+        <button type='submit'>Add Education</button>
       </form>
     </section>
   );

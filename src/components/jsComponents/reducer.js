@@ -1,5 +1,5 @@
 import uniqid from 'uniqid';
-import { initialState } from './CVContextProvider';
+import { initialState } from '../CVContextProvider';
 
 export const reducer = (state, action) => {
   switch (action.type) {

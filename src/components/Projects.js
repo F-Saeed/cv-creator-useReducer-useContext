@@ -5,17 +5,16 @@ import { cvContext } from './CVContextProvider';
 import { Editor } from '@tinymce/tinymce-react';
 
 const Projects = () => {
-  const { state, onProjSubmit, onProjectChange } = useContext(cvContext);
+  const { state, onProjSubmit, onInfoChange } = useContext(cvContext);
+  const { projectName, institution, projectStart, projectEnd, projectDescr } =
+    state.project;
 
   const handleChange = (event) => {
-    const currentValue = event.target.value;
-    const id = event.target.id;
-
-    onProjectChange(currentValue, id);
+    onInfoChange(event.target.value, event.target.id);
   };
 
   const descrHandleChange = (newValue, editor) => {
-    onProjectChange(newValue, editor.id);
+    onInfoChange(newValue, editor.id);
   };
 
   return (
@@ -27,7 +26,7 @@ const Projects = () => {
           <input
             id='projectName'
             type='text'
-            value={state.project.projectName}
+            value={projectName}
             onChange={handleChange}
           />
         </div>
@@ -36,7 +35,7 @@ const Projects = () => {
           <input
             id='institution'
             type='text'
-            value={state.project.institution}
+            value={institution}
             onChange={handleChange}
           />
         </div>
@@ -45,7 +44,7 @@ const Projects = () => {
           <input
             id='projectStart'
             type='text'
-            value={state.project.projectStart}
+            value={projectStart}
             onChange={handleChange}
           />
         </div>
@@ -54,7 +53,7 @@ const Projects = () => {
           <input
             id='projectEnd'
             type='text'
-            value={state.project.projectEnd}
+            value={projectEnd}
             onChange={handleChange}
           />
         </div>
@@ -62,7 +61,7 @@ const Projects = () => {
           <h3>Description:</h3>
           <Editor
             id='projectDescr'
-            value={state.project.projectDescr}
+            value={projectDescr}
             onEditorChange={descrHandleChange}
             apiKey='rlbryazfwlm9gaq1xyg33hn2jvg28o09o1unw7xwijjxawnk'
             tinymceScriptSrc={
